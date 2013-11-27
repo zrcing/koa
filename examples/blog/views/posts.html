@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+  <h1>Posts</h1>
+  <p>You have <strong>{{ posts.length }}</strong> posts!</p>
+  <section id="posts">
+    {% for post in posts %}
+      <section class="post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+      </section>
+    {% endfor %}
+  </section>
+{% endblock %}

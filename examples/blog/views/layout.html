@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>{% block title %}Blog{% endblock %}</title>
+  <style>
+    body {
+      padding: 80px;
+      font: 16px Helvetica, Arial;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+
+    .post {
+      margin: 40px 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .post:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <section id="content">
+    {% block content %}
+      <p>Missing content!</p>
+    {% endblock %}
+  </section>
+</body>
+</html>
