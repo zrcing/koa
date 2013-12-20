@@ -10,6 +10,7 @@ describe('ctx.throw(msg)', function(){
       ctx.throw('boom');
     } catch (err) {
       assert(500 == err.status);
+      assert(err.expose);
       done();
     }
   })
@@ -24,6 +25,7 @@ describe('ctx.throw(msg, status)', function(){
     } catch (err) {
       assert('name required' == err.message);
       assert(400 == err.status);
+      assert(err.expose);
       done();
     }
   })
@@ -38,6 +40,7 @@ describe('ctx.throw(status)', function(){
     } catch (err) {
       assert('Bad Request' == err.message);
       assert(400 == err.status);
+      assert(err.expose);
       done();
     }
   })

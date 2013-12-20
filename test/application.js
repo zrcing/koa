@@ -381,6 +381,26 @@ describe('app.respond', function(){
         .expect(403, 'sorry!')
         .end(done);
       })
+      
+      describe('when json is accepted', function(){
+        it('should respond with json', function(done){
+          var app = koa();
+          
+          app.use(function *(){
+            var err = new Error('sorry!');
+            err.status = 403;
+            err.expose = true;
+            throw err;
+          });
+          
+          request(app.listen())
+          .get('/')
+          .set('Accept', 'application/json')
+          .expect('Content-Type', 'application/json')
+          .expect({ error: 'sorry!' })
+          .end(done);
+        })
+      })
     })
 
     describe('with a .status property', function(){
